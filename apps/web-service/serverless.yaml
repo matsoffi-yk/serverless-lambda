@@ -34,11 +34,6 @@ provider:
   #         Resource: "arn:aws:s3:::my-images/*" # only bucket name "my-images" (no other buckets allowed)
   #         # "arn : partition : service : region : account-id : resource"
 
-custom: # Custom variable
-  logRetention: # Log retention days by Stage
-    dev: 7
-    prod: 15
-
 plugins:
   - serverless-webpack
   - serverless-offline
@@ -50,3 +45,14 @@ functions:
       - http:
           path: /hello
           method: get
+          cors: true
+
+custom: # Custom variable
+  logRetention: # Log retention days by Stage
+    dev: 7
+    prod: 15
+  serverless-offline:
+    httpPort: 18000
+    lambdaPort: 18001
+    reloadHandler: true # force reload handler for new request
+

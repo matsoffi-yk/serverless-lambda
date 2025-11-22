@@ -222,6 +222,15 @@ functions:
       - http:
           path: /hello
           method: get
+
+custom: # Custom variable
+  logRetention: # Log retention days by Stage
+    dev: 7
+    prod: 15
+  serverless-offline:
+    httpPort: 18000
+    lambdaPort: 18001
+    reloadHandler: true # force reload handler for new request
 ```
 
 ### 6. Add script in package.json
