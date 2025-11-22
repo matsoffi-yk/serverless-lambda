@@ -240,7 +240,7 @@ functions:
 yarn dev
 ```
 
-### 8. Run Dev
+### 8. Run Deploy
 
 - create file .env (apps/web-service/.env)
 
