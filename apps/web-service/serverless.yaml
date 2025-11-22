@@ -1,0 +1,30 @@
+service: web-service
+frameworkVersion: '3'
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ap-southeast-1
+  logRetentionInDays: 7 
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - logs:CreateLogGroup
+            - logs:CreateLogStream
+            - logs:PutLogEvents
+          Resource: "*"
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
+
+functions:
+  hello:
+    handler: src/handler.hello
+    events:
+      - http:
+          path: /hello
+          method: get

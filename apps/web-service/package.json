@@ -1,0 +1,23 @@
+{
+  "name": "web-service",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "serverless offline",
+    "deploy": "serverless deploy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.159",
+    "@types/webpack-node-externals": "^3",
+    "serverless": "3.39.0",
+    "serverless-offline": "13.3.3",
+    "serverless-webpack": "^5.15.3",
+    "ts-loader": "^9.5.4",
+    "ts-node": "^10.9.2",
+    "webpack": "^5.103.0",
+    "webpack-node-externals": "^3.0.0"
+  }
+}
