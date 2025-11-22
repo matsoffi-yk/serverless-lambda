@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "dev": "serverless offline",
-    "deploy": "serverless deploy"
+    "deploy:dev": "serverless deploy --stage dev",
+    "deploy:prod": "serverless deploy --stage prod"
   },
   "keywords": [],
   "author": "",
