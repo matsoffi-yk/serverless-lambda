@@ -33,6 +33,9 @@ yarn set version 4.11.0 <-- yarn version as used
 ### 3. Install package and first run
 
 ```bash
+rm -rf apps/doc
+cd apps/web && yarn add next@14 react@18 react-dom@18 eslint-config-next@14
+cd ../.. && yarn install
 yarn dev
 ```
 

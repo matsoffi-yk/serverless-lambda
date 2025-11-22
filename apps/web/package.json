@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev-test": "next dev --port 3000",
+    "dev": "next dev --port 3000",
     "build": "next build",
     "start": "next start",
     "lint": "eslint --max-warnings 0",
@@ -12,9 +12,10 @@
   },
   "dependencies": {
     "@repo/ui": "*",
-    "next": "^16.0.1",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "eslint-config-next": "14",
+    "next": "14",
+    "react": "18",
+    "react-dom": "18"
   },
   "devDependencies": {
     "@repo/eslint-config": "*",

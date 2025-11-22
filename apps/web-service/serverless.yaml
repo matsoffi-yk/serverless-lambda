@@ -5,6 +5,7 @@ useDotenv: true
 provider:
   name: aws
   runtime: nodejs18.x
+  stage: ${opt:stage, 'dev'}
   region: ap-southeast-1
   logRetentionInDays: ${self:custom.logRetention.${self:provider.stage}} # keep days Log by Stage
   timeout: 6
@@ -21,16 +22,17 @@ provider:
   # AWS will check in a fraction of a second whether "this card has the Action s3:PutObject and the Resource matches this bucket?"
   # ✅ If yes: Allow the action (code continues to run)
   # ❌ If no: AWS will reject with Error: AccessDeniedException (code fails immediately)
-  iam:
-    role:
-      statements:
-        - Effect: Allow
-          Action: # search google "AWS actions for S3"
-            - s3:GetObject  # service : S3, action : GetObject
-            - s3:PutObject  # service : S3, action : PutObject
-            - s3:DeleteObject  # service : S3, action : DeleteObject
-          Resource: "arn:aws:s3:::my-images/*" # only bucket name "my-images" (no other buckets allowed)
-          # "arn : partition : service : region : account-id : resource"
+  ## Example
+  # iam:
+  #   role:
+  #     statements:
+  #       - Effect: Allow
+  #         Action: # search google "AWS actions for S3"
+  #           - s3:GetObject  # service : S3, action : GetObject
+  #           - s3:PutObject  # service : S3, action : PutObject
+  #           - s3:DeleteObject  # service : S3, action : DeleteObject
+  #         Resource: "arn:aws:s3:::my-images/*" # only bucket name "my-images" (no other buckets allowed)
+  #         # "arn : partition : service : region : account-id : resource"
 
 custom: # Custom variable
   logRetention: # Log retention days by Stage
