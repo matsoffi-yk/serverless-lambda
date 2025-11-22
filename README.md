@@ -230,7 +230,7 @@ custom: # Custom variable
   serverless-offline:
     httpPort: 18000
     lambdaPort: 18001
-    reloadHandler: true # force reload handler for new request
+    reloadHandler: true # force reload handler when have a new request
 ```
 
 ### 6. Add script in package.json
