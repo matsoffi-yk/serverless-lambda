@@ -210,7 +210,8 @@ provider:
             - logs:CreateLogStream
             - logs:PutLogEvents
           Resource: "*"
-
+  environment:
+    ENVIRONMENT: ${env:ENVIRONMENT}
 plugins:
   - serverless-webpack
   - serverless-offline
@@ -259,6 +260,8 @@ yarn dev
 ```env
 AWS_ACCESS_KEY_ID=AKIAxxxxxxxxxxxx
 AWS_SECRET_ACCESS_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+ENVIRONMENT=development
 ```
 
 - add apps/web-service/.gitignore
