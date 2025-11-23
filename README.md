@@ -9,8 +9,8 @@
     - [4. (option if run error) FixBug First run Error](#4-option-if-run-error-fixbug-first-run-error)
       - [Error node version](#error-node-version)
         - [Fix → if need using node v18](#fix--if-need-using-node-v18)
-      - [Error need to use node_modules](#error-need-to-use-node_modules)
-        - [Fix → yarn install need node_module](#fix--yarn-install-need-node_module)
+      - [Error need to use node\_modules](#error-need-to-use-node_modules)
+        - [Fix → yarn install need node\_module](#fix--yarn-install-need-node_module)
   - [Step 2: Create Backend (serverless framework + lambda)](#step-2-create-backend-serverless-framework--lambda)
     - [1. Create folder apps](#1-create-folder-apps)
     - [2. Install serverless](#2-install-serverless)
@@ -20,6 +20,7 @@
     - [6. Add script in package.json](#6-add-script-in-packagejson)
     - [7. Run Dev](#7-run-dev)
     - [8. Run Deploy](#8-run-deploy)
+  - [Project Folder Structure](#project-folder-structure)
 
 ## Techstack
 
@@ -54,7 +55,7 @@ yarn set version 4.11.0 <-- yarn version as used
 ### 3. Install package and first run
 
 ```bash
-rm -rf apps/doc
+rm -rf apps/docs
 cd apps/web && yarn add next@14 react@18 react-dom@18 eslint-config-next@14
 cd ../.. && yarn install
 yarn dev
@@ -276,7 +277,6 @@ yarn dev
 
 ### 8. Run Deploy
 
-- create file .env (apps/web-service/.env)
 
 ```env
 AWS_ACCESS_KEY_ID=AKIAxxxxxxxxxxxx
@@ -285,14 +285,12 @@ AWS_SECRET_ACCESS_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ENVIRONMENT=development
 ```
 
-- add apps/web-service/.gitignore
 
 ```gitignore
 ...
 .serverless
 ```
 
-- run deploy
 
 ```bash
 yarn deploy
@@ -310,3 +308,56 @@ functions:
 
 Monitor all your API routes with Serverless Console: run "serverless --console"
 ```
+
+## Project Folder Structure
+
+- [`package.json`](./package.json)
+- [`README.md`](./README.md)
+- [`turbo.json`](./turbo.json)
+- `apps/`
+  - [`web/`](./apps/web/)
+    - [`eslint.config.js`](./apps/web/eslint.config.js)
+    - [`next.config.js`](./apps/web/next.config.js)
+    - [`next-env.d.ts`](./apps/web/next-env.d.ts)
+    - [`package.json`](./apps/web/package.json)
+    - [`README.md`](./apps/web/README.md)
+    - [`tsconfig.json`](./apps/web/tsconfig.json)
+    - `app/`
+      - [`globals.css`](./apps/web/app/globals.css)
+      - [`layout.tsx`](./apps/web/app/layout.tsx)
+      - [`page.module.css`](./apps/web/app/page.module.css)
+      - [`page.tsx`](./apps/web/app/page.tsx)
+      - `fonts/`
+    - `public/`
+  - [`web-service/`](./apps/web-service/)
+    - [`package.json`](./apps/web-service/package.json)
+    - [`README.md`](./apps/web-service/README.md)
+    - [`serverless.yaml`](./apps/web-service/serverless.yaml)
+    - [`tsconfig.json`](./apps/web-service/tsconfig.json)
+    - [`webpack.config.js`](./apps/web-service/webpack.config.js)
+    - `src/`
+      - [`handler.ts`](./apps/web-service/src/handler.ts)
+- `docs/`
+  - [`README.md`](./docs/README.md)
+- `packages/`
+  - [`eslint-config/`](./packages/eslint-config/)
+    - [`base.js`](./packages/eslint-config/base.js)
+    - [`next.js`](./packages/eslint-config/next.js)
+    - [`package.json`](./packages/eslint-config/package.json)
+    - [`react-internal.js`](./packages/eslint-config/react-internal.js)
+    - [`README.md`](./packages/eslint-config/README.md)
+  - [`typescript-config/`](./packages/typescript-config/)
+    - [`base.json`](./packages/typescript-config/base.json)
+    - [`nextjs.json`](./packages/typescript-config/nextjs.json)
+    - [`package.json`](./packages/typescript-config/package.json)
+    - [`react-library.json`](./packages/typescript-config/react-library.json)
+- [`ui/`](./ui/)
+  - [`eslint.config.mjs`](./ui/eslint.config.mjs)
+  - [`package.json`](./ui/package.json)
+  - [`tsconfig.json`](./ui/tsconfig.json)
+  - `src/`
+    - [`button.tsx`](./ui/src/button.tsx)
+    - [`card.tsx`](./ui/src/card.tsx)
+    - [`code.tsx`](./ui/src/code.tsx)
+
+Click any link to open that file or folder on GitHub/Git-compatible viewers.
