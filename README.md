@@ -9,8 +9,8 @@
     - [4. (option if run error) FixBug First run Error](#4-option-if-run-error-fixbug-first-run-error)
       - [Error node version](#error-node-version)
         - [Fix → if need using node v18](#fix--if-need-using-node-v18)
-      - [Error need to use node\_modules](#error-need-to-use-node_modules)
-        - [Fix → yarn install need node\_module](#fix--yarn-install-need-node_module)
+      - [Error need to use node_modules](#error-need-to-use-node_modules)
+        - [Fix → yarn install need node_module](#fix--yarn-install-need-node_module)
   - [Step 2: Create Backend (serverless framework + lambda)](#step-2-create-backend-serverless-framework--lambda)
     - [1. Create folder apps](#1-create-folder-apps)
     - [2. Install serverless](#2-install-serverless)
@@ -150,18 +150,18 @@ module.exports = {
   target: 'node',
   // using devtool only Local (debug easier)
   devtool: slsw.lib.webpack.isLocal ? 'source-map' : 'hidden-source-map',
-  
+
   externals: [nodeExternals()], // not to include node_modules in the Bundle
 
   entry: slsw.lib.entries, // Webpack will find entry points from serverless.yml
-  
+
   output: {
     libraryTarget: 'commonjs',
     path: path.join(__dirname, '.webpack'),
     filename: '[name].js',
     sourceMapFilename: '[file].map',
   },
-  
+
   module: {
     rules: [
       {
@@ -171,7 +171,7 @@ module.exports = {
       },
     ],
   },
-  
+
   resolve: {
     extensions: ['.ts', '.js'],
   },
@@ -198,7 +198,7 @@ tsc --init --target es2020
 import { APIGatewayProxyHandler } from 'aws-lambda';
 
 export const hello: APIGatewayProxyHandler = async (event, context) => {
-  
+
   console.log(event.queryStringParameters);
 
   return {
@@ -214,14 +214,14 @@ export const hello: APIGatewayProxyHandler = async (event, context) => {
 
 ```yaml
 service: web-service
-frameworkVersion: '3'
+frameworkVersion: "3"
 useDotenv: true
 
 provider:
   name: aws
   runtime: nodejs18.x
   region: ap-southeast-1
-  logRetentionInDays: 7 
+  logRetentionInDays: 7
   iam:
     role:
       statements:
@@ -262,7 +262,7 @@ custom: # Custom variable
 ```json
 ...
   "scripts": {
-    "dev": "serverless offline",      
+    "dev": "serverless offline",
     "deploy": "serverless deploy"
   },
 ...

@@ -22,7 +22,10 @@ export default function Home() {
             Read our docs
           </a>
         </div>
-        <Button appName={process.env.ENVIRONMENT || 'development'} className={styles.secondary}>
+        <Button
+          appName={process.env.ENVIRONMENT || "development"}
+          className={styles.secondary}
+        >
           Open alert
         </Button>
       </main>
