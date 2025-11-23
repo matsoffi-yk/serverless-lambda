@@ -1,5 +1,26 @@
 # Setup project Step-by-Step
 
+- [Setup project Step-by-Step](#setup-project-step-by-step)
+  - [Techstack](#techstack)
+  - [Step 1: Setup Turbo-repo](#step-1-setup-turbo-repo)
+    - [1. Install Turbo Repo](#1-install-turbo-repo)
+    - [2. Set yarn to repo](#2-set-yarn-to-repo)
+    - [3. Install package and first run](#3-install-package-and-first-run)
+    - [4. (option if run error) FixBug First run Error](#4-option-if-run-error-fixbug-first-run-error)
+      - [Error node version](#error-node-version)
+        - [Fix → if need using node v18](#fix--if-need-using-node-v18)
+      - [Error need to use node\_modules](#error-need-to-use-node_modules)
+        - [Fix → yarn install need node\_module](#fix--yarn-install-need-node_module)
+  - [Step 2: Create Backend (serverless framework + lambda)](#step-2-create-backend-serverless-framework--lambda)
+    - [1. Create folder apps](#1-create-folder-apps)
+    - [2. Install serverless](#2-install-serverless)
+    - [3. Install lambda](#3-install-lambda)
+    - [4. Install serverless and ts for dev](#4-install-serverless-and-ts-for-dev)
+    - [5. Create file handler and serverless.yaml](#5-create-file-handler-and-serverlessyaml)
+    - [6. Add script in package.json](#6-add-script-in-packagejson)
+    - [7. Run Dev](#7-run-dev)
+    - [8. Run Deploy](#8-run-deploy)
+
 ## Techstack
 
 - Turbo-repo
@@ -15,7 +36,7 @@
 yarn dlx create-turbo@latest . --package-manager yarn
 ```
 
-### 2. set yarn to repo
+### 2. Set yarn to repo
 
 ```bash
 yarn set version stable
